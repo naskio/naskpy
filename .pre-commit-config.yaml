@@ -31,8 +31,8 @@ repos:
         files: "\\.(py|txt|yaml|json|md|toml|lock|cfg|html|sh|js|yml)$"
       - id: end-of-file-fixer
 
-  - repo: https://github.com/thlorenz/doctoc
-    rev: v2.0.1
-    hooks:
-      - id: doctoc
+#  - repo: https://github.com/thlorenz/doctoc
+#    rev: v2.0.1
+#    hooks:
+#      - id: doctoc
 #        files: "README.md"
