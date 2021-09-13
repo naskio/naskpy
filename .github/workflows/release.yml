@@ -17,13 +17,22 @@ on:
       - "*.*.*"
 
 jobs:
-  build_and_pulish:
+  build_and_publish:
+    name: Build and Publish
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Check Test
+        id: check-test
+        uses: LASER-Yi/workflow-status@v0.0.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          workflow: test.yml
+
       - name: Build and publish to PyPi
+        if: ${{ steps.check-test.outputs.conclusion == 'success' }}
         uses: JRubics/poetry-publish@v1.8
         with:
           pypi_token: ${{ secrets.PYPI_TOKEN }}
@@ -31,6 +40,7 @@ jobs:
           poetry_version: "==1.1.8"
 
       - name: Create Release
+        if: ${{ steps.check-test.outputs.conclusion == 'success' }}
         id: create_release
         uses: actions/create-release@v1
         env:
@@ -38,6 +48,6 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          body: NaskPy package version v${{ github.ref }}
+          body: NaskPy package version v ${{ github.ref }}
 #          draft: false
 #          prerelease: false
