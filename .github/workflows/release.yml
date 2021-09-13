@@ -41,4 +41,3 @@ jobs:
           body: NaskPy package version v${{ github.ref }}
 #          draft: false
 #          prerelease: false
-
