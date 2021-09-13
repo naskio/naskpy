@@ -1,0 +1,38 @@
+repos:
+  - repo: https://github.com/psf/black
+    rev: 20.8b1
+    hooks:
+      - id: black
+        args: [ --config=pyproject.toml ]
+
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: "3.8.4"
+    hooks:
+      - id: flake8
+        additional_dependencies: [ pep8-naming ]
+
+  - repo: https://github.com/timothycrosley/isort
+    rev: 5.5.4
+    hooks:
+      - id: isort
+        files: "\\.(py)$"
+        args: [ --settings-path=pyproject.toml ]
+
+  - repo: https://github.com/hadialqattan/pycln
+    rev: v1.0.3
+    hooks:
+      - id: pycln
+        args: [ --config=pyproject.toml ]
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+      - id: trailing-whitespace
+        files: "\\.(py|txt|yaml|json|md|toml|lock|cfg|html|sh|js|yml)$"
+      - id: end-of-file-fixer
+
+  - repo: https://github.com/thlorenz/doctoc
+    rev: master
+    hooks:
+      - id: doctoc
+        files: "README.md"
