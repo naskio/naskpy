@@ -1,0 +1,72 @@
+######## PIPELINE ########
+# Run pre-commit:
+#   | failure ~> stop.
+#   | pass:
+#       Run tests:
+#          | failure ~> stop.
+#          | pass:
+#             Upload coverage.
+##################################
+# Requiered Github secrets:
+#   - CODECOV_TOKEN
+##################################
+
+name: Test
+
+# Trigger the workflow on push to main branch or on pull request
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pre-commit:
+    name: Pre-commit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: pre-commit/action@v2.0.0
+
+  test:
+    name: Test
+    needs: pre-commit
+    runs-on: ${{ matrix.os }}
+    strategy:
+      #      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+        python-version: [ 3.7, 3.8, 3.9 ]
+        poetry-version: [ 1.1.8 ]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Setup Poetry ${{ matrix.poetry-version }}
+        uses: abatilo/actions-poetry@v2.0.0
+        with:
+          poetry-version: ${{ matrix.poetry-version }}
+      - name: View poetry@${{ matrix.poetry-version }} --help
+        run: poetry --help
+
+      - name: Install Dependencies
+        run: poetry install -v --no-root
+
+      - name: Test with pytest by poetry
+        run: poetry run pytest tests/
+
+      - name: Generate coverage report
+        run: poetry run pytest tests/ --cov=./ --cov-report=xml
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1.0.13
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          name: ${{ matrix.os }}, ${{ matrix.python-version }}

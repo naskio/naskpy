@@ -1,0 +1,44 @@
+######## PIPELINE ########
+# Run build_and_publish:
+#   | failure ~> stop.
+#   | pass:
+#       Run create_release
+##################################
+# Required GitHub secrets:
+#   - GITHUB_TOKEN (provided by actions)
+#   - PYPI_TOKEN
+##################################
+
+name: Release
+
+on:
+  push:
+    tags:
+      - "*.*.*"
+
+jobs:
+  build_and_pulish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and publish to PyPi
+        uses: JRubics/poetry-publish@v1.8
+        with:
+          pypi_token: ${{ secrets.PYPI_TOKEN }}
+          python_version: "3.9"
+          poetry_version: "==1.1.8"
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: NaskPy package version v${{ github.ref }}
+#          draft: false
+#          prerelease: false
+
