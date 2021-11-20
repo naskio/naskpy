@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "naskpy"
-version = "0.1.0"
+version = "0.1.1"
 description = "Tools, modules and functions that I use regularly while coding in Python"
 authors = ["Mehdi Nassim KHODJA <khodjamehdinassim@gmail.com>"]
 maintainers = ["Mehdi Nassim KHODJA <khodjamehdinassim@gmail.com>"]
