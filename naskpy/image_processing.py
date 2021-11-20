@@ -40,11 +40,11 @@ def resize_by_height(image: Image.Image, nh: int) -> Image.Image:
 
 
 def resize(
-    image: Image.Image,
-    size: Tuple[int, int],
-    crop: bool = False,
-    position: Tuple[str, str] = ("center", "center"),
-    fill_color=(0, 0, 0, 0),
+        image: Image.Image,
+        size: Tuple[int, int],
+        crop: bool = False,
+        position: Tuple[str, str] = ("center", "center"),
+        fill_color=(0, 0, 0, 0),
 ) -> Image.Image:
     """
     Resize an image to a given size.
@@ -112,10 +112,10 @@ def resize(
 
 
 def to_square(
-    image: Image.Image,
-    side_length: int,
-    fill_color=(0, 0, 0, 0),
-    center_crop: bool = False,
+        image: Image.Image,
+        side_length: int,
+        fill_color=(0, 0, 0, 0),
+        center_crop: bool = False,
 ) -> Image.Image:
     """
     Resize an image to a square of a given side length.
