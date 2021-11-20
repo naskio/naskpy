@@ -34,7 +34,7 @@ jobs:
 
   test:
     name: Test
-    needs: pre-commit
+    #    needs: pre-commit
     runs-on: ${{ matrix.os }}
     strategy:
       #      fail-fast: false
