@@ -18,8 +18,8 @@ def split_path(file_path: Union[Path, str]) -> Tuple[str, str, str]:
     :return: Tuple[str, str, str]
     """
     file_path_str = str(file_path)
-    filename = file_path_str.split('/')[-1]
-    basename, extension = filename.split('.')
+    filename = file_path_str.split("/")[-1]
+    basename, extension = filename.split(".")
     return filename, basename, extension
 
 
