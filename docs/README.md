@@ -2,7 +2,7 @@
 
 ```shell
 cd ./docs
-sphinx-apidoc -o ./source/_modules ../naskpy -f 
+sphinx-apidoc -o ./_modules ../naskpy -f 
 make html
 ```
 
