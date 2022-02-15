@@ -2,6 +2,7 @@
 
 Tools, modules and functions that I use regularly while coding scripts in Python
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/e84b6a32a18e4ae18a51e7bf5956becc)](https://www.codacy.com/gh/naskio/naskpy/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=naskio/naskpy&amp;utm_campaign=Badge_Grade)
 [![Maintainability](https://api.codeclimate.com/v1/badges/6f79c1172b6dc903377c/maintainability)](https://codeclimate.com/github/naskio/naskpy/maintainability)
 [![codecov](https://codecov.io/gh/naskio/naskpy/branch/main/graph/badge.svg?token=7HY2KN5428)](https://codecov.io/gh/naskio/naskpy)
 ![GitHub branch checks state](https://img.shields.io/github/checks-status/naskio/naskpy/main)
