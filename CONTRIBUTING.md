@@ -1,4 +1,6 @@
-# Docs generation
+# Contributing
+
+## Docs
 
 ```shell
 cd ./docs
@@ -13,7 +15,8 @@ make html
 
 ## Readthedocs
 
-```
-naskpy.readthedocs.io
-naskpy.rtfd.io
-```
+Will build automatically
+
+- [naskpy.readthedocs.io](https://naskpy.readthedocs.io)
+- [naskpy.rtfd.io](https://naskpy.rtfd.io)
+- custom domain can be added
