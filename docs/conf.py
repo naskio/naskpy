@@ -19,7 +19,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # sys.path.insert(0, os.path.abspath('..'))
 # sys.path.insert(0, os.path.abspath('../naskpy'))
 print('BASE_DIR', BASE_DIR)
-sys.path.insert(0, str(BASE_DIR / 'naskpy'))
+sys.path.insert(0, str(BASE_DIR))
+sys.path.insert(1, str(BASE_DIR / 'naskpy'))
+sys.path.insert(2, str(Path(__file__).resolve().parent))
+sys.path.insert(3, str(Path(__file__).resolve().parent.parent))
 
 # -- Project information -----------------------------------------------------
 
