@@ -8,6 +8,11 @@ Welcome to naskpy!
 
 
 
+.. include:: homepage.md
+   :parser: myst_parser.sphinx_
+
+
+
 Indices and tables
 ==================
 * :ref:`genindex`
