@@ -37,7 +37,7 @@ jobs:
         with:
           pypi_token: ${{ secrets.PYPI_TOKEN }}
           python_version: "3.9"
-          poetry_version: "==1.1.8"
+          poetry_version: "==1.1.12"
 
       - name: Create Release
         if: ${{ steps.check-test.outputs.conclusion == 'success' }}

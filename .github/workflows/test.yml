@@ -1,13 +1,10 @@
 ######## PIPELINE ########
-# Run pre-commit:
-#   | failure ~> stop.
-#   | pass:
-#       Run tests:
-#          | failure ~> stop.
-#          | pass:
-#             Upload coverage.
+#   Run tests:
+#      | failure ~> stop.
+#      | pass:
+#         Upload coverage.
 ##################################
-# Requiered Github secrets:
+# Required Github secrets:
 #   - CODECOV_TOKEN
 ##################################
 
@@ -23,25 +20,14 @@ on:
       - main
 
 jobs:
-  #  pre-commit:
-  #    name: Pre-commit
-  #    runs-on: ubuntu-latest
-  #    continue-on-error: true
-  #    steps:
-  #      - uses: actions/checkout@v2
-  #      - uses: actions/setup-python@v2
-  #      - uses: pre-commit/action@v2.0.0
-
   test:
     name: Test
-    #    needs: pre-commit
     runs-on: ${{ matrix.os }}
     strategy:
-      #      fail-fast: false
       matrix:
         os: [ ubuntu-latest, windows-latest, macos-latest ]
-        python-version: [ 3.7, 3.8, 3.9 ]
-        poetry-version: [ 1.1.8 ]
+        python-version: [ 3.7, 3.8, 3.9, 3.10 ]
+        poetry-version: [ 1.1.12 ]
     steps:
       - uses: actions/checkout@v2
 
