@@ -10,11 +10,16 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 
-import os
 import sys
+from pathlib import Path
 
+# import os
 # sys.path.insert(0, os.path.abspath('..'))
-sys.path.insert(0, os.path.abspath('../naskpy'))
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+# sys.path.insert(0, os.path.abspath('..'))
+# sys.path.insert(0, os.path.abspath('../naskpy'))
+print('BASE_DIR', BASE_DIR)
+sys.path.insert(0, str(BASE_DIR / 'naskpy'))
 
 # -- Project information -----------------------------------------------------
 
