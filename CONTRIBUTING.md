@@ -63,7 +63,7 @@ To release a new version of the project you need to:
 - Create a new tag locally
 - Push the tag to the remote (**don't push tag until the end of `test_workflow`**)
 
-#### Create release
+### Create release
 
 Once the `test_workflow` is done, you can create run:
 
@@ -77,4 +77,5 @@ VERSION="0.1.1"; MESSAGE=""; git tag $VERSION -a -m $MESSAGE; git push origin $V
   ```shell
   VERSION="0.1.1"; git tag --delete $VERSION; git push --delete origin $VERSION
   ```
+
 - Delete release from GitHub
