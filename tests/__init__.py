@@ -1,1 +1,1 @@
-"""Tests for package naskpy"""
+"""Tests for package naskpy."""

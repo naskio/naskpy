@@ -2,13 +2,13 @@
 name = "naskpy"
 version = "0.1.1"
 description = "Tools, modules and functions that I use regularly while coding in Python"
-authors = ["Mehdi Nassim KHODJA <khodjamehdinassim@gmail.com>"]
-maintainers = ["Mehdi Nassim KHODJA <khodjamehdinassim@gmail.com>"]
+authors = ["Mehdi Nassim KHODJA <18899702+naskio@users.noreply.github.com>"]
+maintainers = ["Mehdi Nassim KHODJA <18899702+naskio@users.noreply.github.com>"]
 license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/naskio/naskpy"
 repository = "https://github.com/naskio/naskpy"
-documentation = "https://py.nask.io/"
+documentation = "https://naskpy.readthedocs.io"
 keywords = ["Python", "Python3", "library", "utilities"]
 classifiers = [
     "Environment :: Console",
@@ -23,10 +23,11 @@ issues = "https://github.com/naskio/naskpy/issues"
 
 
 [tool.poetry.dependencies]
-python = ">=3.7,<4.0"
+python = "^3.7"
 pendulum = "^2.1.2"
-Pillow = "8.4"
 requests = "^2.26.0"
+Pillow = "^9.0.1"
+fire = "^0.4.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.2"
