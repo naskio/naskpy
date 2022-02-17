@@ -1,8 +1,10 @@
+"""helpers for pydantic (model validation and serialization library)."""
+
 from unittest import TestCase
 
 
 def show_diff(instance1, instance2) -> None:
-    """show difference between two pydantic instances
+    """Show difference between two pydantic instances.
 
     :param instance1: pydantic instance
     :type instance1: pydantic.BaseModel

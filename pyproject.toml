@@ -28,6 +28,7 @@ pendulum = "^2.1.2"
 requests = "^2.26.0"
 Pillow = "^9.0.1"
 fire = "^0.4.0"
+grequests = "^0.6.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.2"
