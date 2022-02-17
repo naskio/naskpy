@@ -3,16 +3,19 @@
 from typing import Tuple, Iterator
 from pathlib import Path
 import grequests
+import urllib.request
+import urllib.error
 
 
-def g_download_multiple(urls: list[str], filename: list[Path]) -> Iterator[Tuple[str, Path]]:
+def g_download_multiple(urls: list[str], filepaths: list[Path]) -> Iterator[Tuple[str, Path, bool]]:
     """download multiple files in parallel.
 
     :param urls: list of urls to download
     :type urls: list[str]
-    :param filename: list of filenames to save to
-    :type filename: list[Path]
-    :rtype: Iterator[Tuple[str, Path]]
+    :param filepaths: list of filenames to save to
+    :type filepaths: list[Path]
+    :return: iterator of tuples of (url, filepath, success)
+    :rtype: Iterator[Tuple[str, Path, bool]]
     """
 
     def exception_handler(request, exception):
@@ -20,11 +23,28 @@ def g_download_multiple(urls: list[str], filename: list[Path]) -> Iterator[Tuple
 
     responses = (grequests.get(u) for u in urls)
     responses = grequests.map(responses, exception_handler=exception_handler)
-    for i, (response, file) in enumerate(zip(responses, filename)):
-        with open(file, 'wb') as f:
+    results = []
+    for i, (response, filepath) in enumerate(zip(responses, filepaths)):
+        with open(filepath, 'wb') as f:
             if response:
                 f.write(response.content)
-                x = (urls[i], True)
+                results.append(True)
             else:
-                x = (urls[i], False)
-        yield x
+                results.append(False)
+    return zip(urls, filepaths, results)
+
+
+def download(url: str, filepath: Path) -> bool:
+    """download the file from the url and save it to file.
+
+    :param url: url to download
+    :type url: str
+    :param filepath: file to save to
+    :type filepath: Path
+    :rtype: bool
+    """
+    try:
+        urllib.request.urlretrieve(url, filepath)
+        return True
+    except urllib.error.URLError:
+        return False
