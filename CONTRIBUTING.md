@@ -35,9 +35,34 @@ poetry install
 ### Run tests
 
 ```shell
+poe test
+```
+
+or:
+
+```shell
 poetry run python -m unittest discover
 # or
 poetry run pytest
+```
+
+### Linting
+
+- [pep8](https://www.python.org/dev/peps/pep-0008/) for Python code
+- [remark-lint](https://github.com/remarkjs/remark-lint) for Markdown code (read more
+  at: [remark-cli](https://www.npmjs.com/package/remark-cli/v/6.0.1))
+  - requirements:
+    - node.js with yarn
+    - install dependencies with `yarn install`
+    - Check format of md files ```# poe check-md```
+    - format md files ```# poe format-md```
+
+### Static code analysis
+
+We use [prospector](http://prospector.landscape.io/en/master/usage.html)
+
+```shell
+poe static_analyser
 ```
 
 --------------------------------------------------------------------------------

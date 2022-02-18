@@ -149,3 +149,6 @@ out/
 *.tmp
 
 .DS_Store
+
+# Linter
+node_modules/

@@ -44,8 +44,20 @@ myst-parser = "0.17.0"
 # tox = "^3.23.0"
 # pep8 = "^1.7.1"
 # pylint = "^2.12.2"
-prospector = "^1.6.0" # or prospector[with_everything]
+prospector = { extras = ["with_bandit"], version = "^1.6.0" } # or poetry add prospector[with_everything] --dev
+poethepoet = "^0.12.3"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.poe.tasks] # poe <cmd_name>
+hello-world = { shell = "TEXT=hello-world; echo $TEXT" }                            # poe hello-world
+static_analyser = { shell = "prospector -o text -B" }                               # poe static_analyser
+watch-md = { shell = "npx remark . --quiet --frail --watch" }                       # poe watch-md
+check-md = { shell = "npx remark . --quiet --frail" }                               # poe check-md
+format-md = { shell = "npx remark . --quiet --frail --output" }                     # poe format-md
+test = "pytest"                                                                     # poe test
+py_script_example = { script = "my_app.service:run(debug=True)" }                   # example: python script based task
+shell_script_example = { shell = "ssh -N -L 0.0.0.0:8080:$PROD:8080 $PROD &" }      # (posix) shell based task

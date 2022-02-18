@@ -3,19 +3,13 @@
 
 ---
 engines:
-  duplication:
-    config:
-      languages:
-        - "python"
-  bandit:
   prospector:
-    base_sub_dir: "naskpy/"
-  #  pylintpython3:
+  #    base_sub_dir: "naskpy/"
   remark-lint:
-  #  markdownlint:
+  #  bandit: # used inside prospector
+  #  pylintpython3: # we use pep8 inside prospector
+  #  markdownlint: # replaced by remark-lint
 
-exclude_paths:
-  - "tests/**"
-  - "docs/**"
-  - "**.yml"
-  - "**.yaml"
+# exclude_paths: # managed by prospector and remark-lint
+#  - "tests/**"
+#  - "docs/**"

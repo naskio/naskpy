@@ -1,10 +1,11 @@
 # prospector configuration file
 # http://prospector.landscape.io/en/master/profiles.html
+# http://prospector.landscape.io/en/master/usage.html
 output-format: json
 
 strictness: medium
-#test-warnings: false
-#doc-warnings: false
+test-warnings: false
+doc-warnings: false
 
 #inherits:
 #  - strictness_medium
@@ -27,3 +28,21 @@ pep8:
   full: true
   options:
     max-line-length: 79
+
+
+mccabe:
+  run: true
+  options:
+    max-complexity: 10
+
+bandit:
+  run: true
+  options:
+    min-confidence: 0.9
+
+pylint:
+  run: false
+dodgy:
+  run: false
+pyflakes:
+  run: false

@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "remark-cli": "^10.0.1",
+    "remark-lint-list-item-indent": "^3.1.1",
+    "remark-preset-lint-consistent": "^5.1.1",
+    "remark-preset-lint-recommended": "^6.1.2"
+  },
+  "name": "naskpy",
+  "repository": "git@github.com:naskio/naskpy.git",
+  "author": "Mehdi Nassim KHODJA <18899702+naskio@users.noreply.github.com>",
+  "license": "MIT",
+  "private": false
+}
