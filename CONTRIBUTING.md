@@ -7,22 +7,22 @@ This project use [Poetry](https://python-poetry.org/) to manage dependencies.
 ### Requirements
 
 - [macOS Monterey 12.2](https://www.apple.com/osx/download/)
-    - [Homebrew](https://brew.sh/)
-    - [Python](https://www.python.org/) v3.7 or higher
-    - [PyCharm](https://www.jetbrains.com/pycharm/)
+  - [Homebrew](https://brew.sh/)
+  - [Python](https://www.python.org/) v3.7 or higher
+  - [PyCharm](https://www.jetbrains.com/pycharm/)
 
 - [Poetry](https://python-poetry.org/) v1.1.12 or higher
-    ```shell
-    brew install poetry
-    # or
-    curl -sSL https://install.python-poetry.org | python3 -
-    ```
+  ```shell
+  brew install poetry
+  # or
+  curl -sSL https://install.python-poetry.org | python3 -
+  ```
 
 - Pillow os dependencies (optional)
-    ```shell
-    brew install libtiff libjpeg webp little-cms2
-    brew install freetype harfbuzz fribidi libraqm
-    ```
+  ```shell
+  brew install libtiff libjpeg webp little-cms2
+  brew install freetype harfbuzz fribidi libraqm
+  ```
 
 Make sure to add `/usr/local/lib` to `$DYLD_FALLBACK_LIBRARY_PATH` in your `.bashrc` file (or `.bash_profile`).
 
@@ -51,7 +51,7 @@ Generated using `sphinx` and hosted by `ReadTheDocs`.
 Example of a docstring:
 
 ```python
-"""[Summary]
+"""[Summary].
 :param [ParamName]: [ParamDescription], defaults to [DefaultParamVal]
 :type [ParamName]: [ParamType](, optional)
 ...
@@ -120,9 +120,9 @@ git push; sleep $((10*60));VERSION="0.1.1"; MESSAGE="v0.1.1"; git tag $VERSION -
 ### Cancel release
 
 - Remove the tag from local and remote
-    ```shell
-    VERSION="0.1.1"; git tag --delete $VERSION; git push --delete origin $VERSION
-    ```
+  ```shell
+  VERSION="0.1.1"; git tag --delete $VERSION; git push --delete origin $VERSION
+  ```
 
 - Delete release from [GitHub](https://github.com/naskio/naskpy/releases/)
 
