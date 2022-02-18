@@ -12,18 +12,19 @@ This project use [Poetry](https://python-poetry.org/) to manage dependencies.
     - [PyCharm](https://www.jetbrains.com/pycharm/)
 
 - [Poetry](https://python-poetry.org/) v1.1.12 or higher
-  ```shell
-  brew install poetry
-  # or
-  curl -sSL https://install.python-poetry.org | python3 -
-  ```
+    ```shell
+    brew install poetry
+    # or
+    curl -sSL https://install.python-poetry.org | python3 -
+    ```
 
 - Pillow os dependencies (optional)
-  ```shell
-  brew install libtiff libjpeg webp little-cms2
-  brew install freetype harfbuzz fribidi libraqm
-  ```
-  Make sure to add `/usr/local/lib` to `$DYLD_FALLBACK_LIBRARY_PATH` in your `.bashrc` file (or `.bash_profile`).
+    ```shell
+    brew install libtiff libjpeg webp little-cms2
+    brew install freetype harfbuzz fribidi libraqm
+    ```
+
+Make sure to add `/usr/local/lib` to `$DYLD_FALLBACK_LIBRARY_PATH` in your `.bashrc` file (or `.bash_profile`).
 
 ### Install dependencies
 
@@ -51,7 +52,6 @@ Example of a docstring:
 
 ```python
 """[Summary]
-
 :param [ParamName]: [ParamDescription], defaults to [DefaultParamVal]
 :type [ParamName]: [ParamType](, optional)
 ...
@@ -120,10 +120,12 @@ VERSION="0.1.1"; MESSAGE=""; git tag $VERSION -a -m $MESSAGE; git push origin $V
 ### Cancel release
 
 - Remove the tag from local and remote
-  ```shell
-  VERSION="0.1.1"; git tag --delete $VERSION; git push --delete origin $VERSION
-  ```
+    ```shell
+    VERSION="0.1.1"; git tag --delete $VERSION; git push --delete origin $VERSION
+    ```
 
 - Delete release from [GitHub](https://github.com/naskio/naskpy/releases/)
+
 - Delete release from [PyPI](https://pypi.org/manage/project/naskpy/releases/)
+
 - Delete release from [ReadTheDocs](https://readthedocs.org/projects/naskpy/)

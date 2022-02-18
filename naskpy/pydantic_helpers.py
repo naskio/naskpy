@@ -5,7 +5,6 @@ from unittest import TestCase
 
 def show_diff(instance1, instance2) -> None:
     """Show difference between two pydantic instances.
-
     :param instance1: pydantic instance
     :type instance1: pydantic.BaseModel
     :param instance2: pydantic instance
