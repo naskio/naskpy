@@ -40,3 +40,7 @@ an [issue](https://www.github.com/naskio/naskpy/issues) on GitHub.
 ## License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+--------------------------------------------------------------------------------
+
+Find more projects at [www.nask.io](https://nask.io)
