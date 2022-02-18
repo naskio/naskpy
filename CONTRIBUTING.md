@@ -114,7 +114,7 @@ To release a new version of the project you need to:
 Once the `test_workflow` is done, you can create run:
 
 ```shell
-VERSION="0.1.1"; MESSAGE=""; git tag $VERSION -a -m $MESSAGE; git push origin $VERSION
+git push; sleep $((10*60));VERSION="0.1.1"; MESSAGE="v0.1.1"; git tag $VERSION -a -m $MESSAGE; git push origin $VERSION
 ```
 
 ### Cancel release

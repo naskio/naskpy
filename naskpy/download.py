@@ -1,6 +1,6 @@
 """Sync/async download of files from the internet."""
 
-from typing import Tuple, Iterator
+from typing import Tuple, Iterator, List
 from pathlib import Path
 import grequests
 import urllib.request
@@ -9,15 +9,15 @@ import asyncio
 import aiohttp
 
 
-def g_download_multiple(urls: list[str], filepaths: list[Path]) -> list[Tuple[str, Path, bool]]:
+def g_download_multiple(urls: List[str], filepaths: List[Path]) -> List[Tuple[str, Path, bool]]:
     """Download multiple files in parallel.
 
     :param urls: list of urls to download
-    :type urls: list[str]
+    :type urls: List[str]
     :param filepaths: list of filenames to save to
-    :type filepaths: list[Path]
+    :type filepaths: List[Path]
     :return: list of tuples of (url, filepath, success)
-    :rtype: list[Tuple[str, Path, bool]]
+    :rtype: List[Tuple[str, Path, bool]]
     """
 
     def exception_handler(request, exception):
@@ -77,13 +77,13 @@ async def _async_download(session: aiohttp.ClientSession, url: str, filepath: Pa
     #     return url, filepath, e, False
 
 
-async def _async_download_multiples(urls: list[str], filepaths: list[Path]) -> Iterator[Tuple[str, Path, str, bool]]:
+async def _async_download_multiples(urls: List[str], filepaths: List[Path]) -> Iterator[Tuple[str, Path, str, bool]]:
     """Download multiple files concurrently.
 
     :param urls: list of urls to download
-    :type urls: list[str]
+    :type urls: List[str]
     :param filepaths: list of filenames to save to
-    :type filepaths: list[Path]
+    :type filepaths: List[Path]
     :return: iterator of tuples of (url, filepath, message, success)
     :rtype: Iterator[Tuple[str, Path, str, bool]]
     """
@@ -98,21 +98,21 @@ async def _async_download_multiples(urls: list[str], filepaths: list[Path]) -> I
         return results
 
 
-def _download_multiple_async_wrapper(urls: list[str], filepaths: list[Path]) -> Iterator[Tuple[str, Path, str, bool]]:
+def _download_multiple_async_wrapper(urls: List[str], filepaths: List[Path]) -> Iterator[Tuple[str, Path, str, bool]]:
     """Async wrapper for download multiple files concurrently."""
     loop = asyncio.get_event_loop()
     results = loop.run_until_complete(_async_download_multiples(urls, filepaths))
     return results
 
 
-def download_multiple(urls: list[str], filepaths: list[Path], chunk_size: int = None) -> \
+def download_multiple(urls: List[str], filepaths: List[Path], chunk_size: int = None) -> \
         Iterator[Tuple[str, Path, str, bool]]:
     """Download multiple files concurrently, chunk by chunk.
 
     :param urls: list of urls to download
-    :type urls: list[str]
+    :type urls: List[str]
     :param filepaths: list of filenames to save to
-    :type filepaths: list[Path]
+    :type filepaths: List[Path]
     :param chunk_size: number of files to download at once
     :type chunk_size: int, optional
     :rtype: Iterator[Tuple[str, Path, str, bool]]
