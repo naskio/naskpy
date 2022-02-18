@@ -1,0 +1,21 @@
+# codacy configuration file
+# https://docs.codacy.com/repositories-configure/codacy-configuration-file/
+
+---
+engines:
+  duplication:
+    config:
+      languages:
+        - "python"
+  prospector:
+    base_sub_dir: "naskpy/"
+  remark-lint:
+  #  pylintpython3:
+  #  bandit:
+  #  markdownlint:
+
+exclude_paths:
+  - "tests/**"
+  - "docs/**"
+  - "**.yml"
+  - "**.yaml"

@@ -1,0 +1,29 @@
+# prospector configuration file
+# http://prospector.landscape.io/en/master/profiles.html
+output-format: json
+
+strictness: medium
+#test-warnings: false
+#doc-warnings: false
+
+#inherits:
+#  - strictness_medium
+#  - full_pep8
+
+ignore-paths:
+  - docs
+  - tests
+
+#pep8:
+#  disable:
+#    - W602
+#    - W603
+#  enable:
+#    - W601
+#  options:
+#    max-line-length: 79
+
+pep8:
+  full: true
+  options:
+    max-line-length: 79

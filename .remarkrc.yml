@@ -1,0 +1,4 @@
+# remark-lint configuration file
+
+plugins:
+  - "remark-preset-lint-recommended"
