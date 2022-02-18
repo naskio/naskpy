@@ -11,7 +11,7 @@ engines:
     base_sub_dir: "naskpy/"
   remark-lint:
   #  pylintpython3:
-  #  bandit:
+  bandit:
   #  markdownlint:
 
 exclude_paths:

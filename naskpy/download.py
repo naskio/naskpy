@@ -26,7 +26,7 @@ def g_download_multiple(urls: List[str], filepaths: List[Path]) -> List[Tuple[st
     responses = (grequests.get(u) for u in urls)
     responses = grequests.map(responses, exception_handler=exception_handler)
     results = []
-    for i, (response, filepath) in enumerate(zip(responses, filepaths)):
+    for response, filepath in zip(responses, filepaths):
         if response:
             with open(filepath, 'wb') as f:
                 f.write(response.content)
@@ -71,8 +71,7 @@ async def _async_download(session: aiohttp.ClientSession, url: str, filepath: Pa
             with open(filepath, 'wb') as f:
                 f.write(content)
             return url, filepath, str(response.status), True
-        else:
-            return url, filepath, str(response.status), False
+        return url, filepath, str(response.status), False
     # except Exception as e:
     #     return url, filepath, e, False
 
