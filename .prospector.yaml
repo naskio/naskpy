@@ -6,28 +6,19 @@ output-format: json
 strictness: medium
 test-warnings: false
 doc-warnings: false
-
-#inherits:
-#  - strictness_medium
-#  - full_pep8
+# member-warnings: false
+max-line-length: 120
 
 ignore-paths:
   - docs
   - tests
 
-#pep8:
-#  disable:
-#    - W602
-#    - W603
-#  enable:
-#    - W601
-#  options:
-#    max-line-length: 120
-
 pep8:
   full: true
-  options:
-    max-line-length: 120
+  #  disable:
+  #    - E501
+  #  options:
+  #    max-line-length: 79
 
 
 mccabe:
@@ -39,7 +30,7 @@ bandit:
   run: true
   options:
     min-confidence: 0.9
-    config: bandit.yml
+    config: bandit.yaml
 
 pylint:
   run: false

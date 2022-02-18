@@ -2,7 +2,7 @@
 # (optional) list included tests here:
 #tests: ['B201', 'B301']
 # (optional) list skipped tests here:
-#skips: ['B101', 'B601']
+skips: [ 'B101' ]
 ### override settings - used to set settings for plugins to non-default values
 #any_other_function_with_shell_equals_true:
 #  no_shell: [os.execl, os.execle, os.execlp, os.execlpe, os.execv, os.execve,
