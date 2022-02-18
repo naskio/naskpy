@@ -22,12 +22,12 @@ ignore-paths:
 #  enable:
 #    - W601
 #  options:
-#    max-line-length: 79
+#    max-line-length: 120
 
 pep8:
   full: true
   options:
-    max-line-length: 79
+    max-line-length: 120
 
 
 mccabe:
@@ -39,6 +39,7 @@ bandit:
   run: true
   options:
     min-confidence: 0.9
+    config: bandit.yml
 
 pylint:
   run: false

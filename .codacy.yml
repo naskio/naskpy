@@ -1,6 +1,8 @@
 # codacy configuration file
 # https://docs.codacy.com/repositories-configure/codacy-configuration-file/
 
+# > make sure on codacy dashboard only following engines are enabled
+
 ---
 engines:
   prospector:
