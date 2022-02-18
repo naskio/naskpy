@@ -7,11 +7,11 @@ engines:
     config:
       languages:
         - "python"
+  bandit:
   prospector:
     base_sub_dir: "naskpy/"
-  remark-lint:
   #  pylintpython3:
-  bandit:
+  remark-lint:
   #  markdownlint:
 
 exclude_paths:
